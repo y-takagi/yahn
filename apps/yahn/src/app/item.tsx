@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import dayjs from 'dayjs';
 
 import { ItemDto } from './api/data';
@@ -12,8 +13,10 @@ export function Item(props: ItemProps) {
 
   return (
     <div className="flex flex-col">
-      <div className="flex flex-wrap">
-        <div className="pr-2">{item.title}</div>
+      <div className="flex flex-wrap text-blue-500">
+        <Link className="hover:underline pr-2" to={'/items/' + item.id}>
+          {item.title}
+        </Link>
         {item.url != null && (
           <a
             className="hover:underline text-gray-800"
@@ -25,7 +28,7 @@ export function Item(props: ItemProps) {
         )}
       </div>
       <div className="text-gray-800">
-        {item.score} point by {item.by} {dayjs.unix(item.time).fromNow()}
+        {`${item.score} point by ${item.by} ${dayjs.unix(item.time).fromNow()}`}
       </div>
     </div>
   );

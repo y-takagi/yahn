@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
 
 import { Newstories } from './newstories';
+import { ItemDetail } from './item-detail';
 
 export function App() {
   return (
@@ -14,6 +15,7 @@ export function App() {
         </header>
         <main>
           <Switch>
+            <Route path="/items/:id(\d+)" component={ItemDetail} />
             <Route path="/" component={Newstories} />
           </Switch>
         </main>
