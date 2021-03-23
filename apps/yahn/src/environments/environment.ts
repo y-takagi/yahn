@@ -3,4 +3,5 @@
 
 export const environment = {
   production: false,
+  baseUrl: 'https://hacker-news.firebaseio.com/',
 };
